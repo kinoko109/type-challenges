@@ -8,4 +8,4 @@
 type If<C, T, F> = C extends true ? T : F;
 
 // other a
-type If2<C extends boolean, T, F> = C extends true ? T : F;
+type If2<C extends boolean, T, F> = C extends true ? T : C extends boolean ? F : never
