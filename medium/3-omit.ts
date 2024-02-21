@@ -1,0 +1,14 @@
+// q
+// https://github.com/type-challenges/type-challenges/blob/main/questions/00003-medium-omit/README.ja.md
+
+// a
+// https://www.typescriptlang.org/play?ssl=31&ssc=1&pln=35&pc=1#code/PQKgUABBDMELQQPIFsCWAXS8491gRgJ4QCCAdugBYD2ZxAYgK4QAUAAgIYUBmjAlBADEgWjlAWL5DGZVLSH5GqADbo4qMmCyDNEQFcxgeVV1UQCK+gfwZAPfHHAdgyBo9UBnDIB+GQGMMgYoZAVwzOABigwAeACoAaCABpAD53QCSGQH95QApXQG0GQC0GQEAGd193C0B1hkBbhkBFhmdAaQZASIZ3IIjAKSVAEzTATQZAaIYrcMB87UBRiMB1BkA-BkrAIAYDCEBo+UAJBkAHBm73EfQAZyxVdABTACduDgBjaYhfagATaggAbywodAwFaYAuCDH0WdUAcz2IdemxxcuABwPaU-PLshuoKEXqZDPI4zdanfDUahHLhYAC+3XQhGeKzWmwACrNpgA3VDTADuEAAvBAALKELzoPwbaiBADk90eLzeZBpEAAPhAaQd0EcaSFuv8yOcIOgqacUdR0VicfiibtfhB-oDgdNQRAFgoxtN-LCsCN3N0QhAAOIYAASjHwgHMGQBdHoBYqJqgCx-yjodDPMbHYDAcaLSgAOgAVmNfdRZldgNBgP6OGAQMB1KAIAB9ZMp1MpiCAZQYM4BrBkAzQx2QCTDOFABhRgFNFJNpyuJiCx9QIpEksloCkBYIQaYADxmZHWYwgAGtpoRqNxVobZVgANqoiCqAdDkerCAcPszzvd3ttgD8EDIWLmEFOqIAumLp8ewHCwAmq5WIA5AJ0MgAmGQCNDHYHxXb+na6hASH0MKiIrNsEAAKIAI6MBwCiBKBHZIosAEwmqswAhybD1tMcA+tBRzfA8wCMAcGo0nWQEKiuDyEhAk5YHBCEUhBUEKN49HTIhKoAIyBKS5KUpstL0k8qCvNIzIhBJ2pQGxiGsZB0GsfB7EggATDxTY+OKgkPMJom0Cy7I0oqQLTCCvKSWAF7XsAEAYWMcCdgxDmzKhsxgJh7YuSG1G8c2-HUhyQmMmJBkcqomLQag6y8uoUxzAsyyrFSOxYFyRwfBc1xYEFIlMhlXw-AqAImSCYIQlCahXnF8xLCsMkgpxKX7IcJxnJl3xYMZyqquCkLTNCVUUPFtVgUpHHrCpTXCi1+VZVeN5fumgCE1hYD4OIAwwzpJ+i01nGoBYIagDHkYAKt7hIAjoqAJDmjrOq67qet6fqBsGobhsAXBjLicyRtGUBHadgDRkdUToum6Hpeo8j1BiGYYRmMkJEWJEy-RAgC6DBYgBrchYgBNUYAMhnA7dYMPQGUMvVGMZxkAA
+type MyOmit<T, K extends keyof T> = {
+  [P in keyof T as P extends K ? never : P]: T[P]
+}
+
+// 上記で使用しているasはアサーションではなく、キーの再マッピング(v4.1~)
+// https://www.typescriptlang.org/docs/handbook/2/mapped-types.html#key-remapping-via-as
+type Hoge<T> = {
+  [P in keyof T as SomeType]: T[P]
+}
