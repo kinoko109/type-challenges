@@ -10,6 +10,7 @@ type DeepReadonly<T> = {
 }
 
 // other a
+// keyof T -> ex) keyof string になった場合、stringにはkeyが存在しないためneverとなる。
 type DeepReadonly2<T> = keyof T extends never
   ? T
   : { readonly [k in keyof T]: DeepReadonly2<T[k]> };
