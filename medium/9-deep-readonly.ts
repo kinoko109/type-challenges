@@ -6,8 +6,8 @@
 
 // my a
 type DeepReadonly<T> = {
-  readonly [K in keyof T]: keyof T[K] extends never ? T[K] : DeepReadonly<T[K]>
-}
+  readonly [K in keyof T]: keyof T[K] extends never ? T[K] : DeepReadonly<T[K]>;
+};
 
 // other a
 // keyof T -> ex) keyof string になった場合、stringにはkeyが存在しないためneverとなる。
