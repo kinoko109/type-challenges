@@ -1,0 +1,11 @@
+// q
+// https://github.com/type-challenges/type-challenges/blob/main/questions/00298-medium-length-of-string/README.ja.md
+
+// a
+// https://www.typescriptlang.org/play?#code/PQKgUABBBMCcAcEC0EAyBTAdgcwC4AsIB7AMwgGVcAnASx0mSSeYYCMBPCABRuwgDEAhjggAKAALYkABwA2w9AEoIAYkC0coCxfVbnQBbOYJ1JZNHVUGywDFTYiArmMDyqlagADSrRwrZWPPhcRACwZAGBVADQZACIZAMQZAawZAQAZAcNNAdW1AdCVAK4ZAMYZAS4ZAa4ZAOwZAd1TAVQZAJIZACCjAdO9AdQZAPwZATQZAIAZnCAA+CABxUwAJAFdWQHMGQC6PQFiomsBohkAsf-xcXGkAZwAuYGBcGYBjfAA6ACsZ9aIqbGA4eGBNwTAQYCtQCAB9O-uH+4hAZQZnqMBmhkAfhkBJhiLADCjAKaKt0eIJuEAuVlw7Gk6DQPgIAHkSO46NgADzkCDoAAeOkwABMZhAZtRUQAaCAAFSxuKwhOJpJwAG0ALoQAC8EFZLU5mJxePpLgAJABvOgkdBUAQAX1F4slaGl-gA-HCcIjkYz0agKUz1vrKRT+CyWnMqUyAETedX4C0sq4gYGgh4QNKAToZABMMgEaGT5up3Ou7gy40fR7XAQKEwiAiiAAUQAjl0LBTY9iYStw9KICQqERdBAAOTiSPoJBrCzW7DoGbALq4GiyGYFyHQ2ErQQzascrkMVPp3BohNJ2RojA2pEonBogsFpoUgAMTTnvbT6Azg8TFlH8PwE6104A1l1dDQD0RZxSAGxLskr-sb4fb8eajzogtUdB0QQXiAAVhvd5rgOQ5bmOvh7q+07kEQXQEgAhHGXTSPgRCYDQx4-gAjNey72mA1wBi6gCE1jkbppIAwwyAOsM-oBkG+HgFALSAMeRgAq3kUgCOioAkOajBMUyzAsSyrBs2y7PshwIMAwgzAA7pKJxnIxECsUUgDRkeMkzTPMizLGsWw7HsBxHMAMxELIdY0KhMwMC0gC6DDkgBrcjkgBNUYAMhm8ZpAk6cJ+liac5yXEAA
+type LengthOfString<
+  S extends string,
+  T extends string[] = []
+> = S extends `${infer F}${infer L}`
+  ? LengthOfString<L, [...T, F]>
+  : T["length"];
